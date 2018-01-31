@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hello, <?= $name; ?></h1>
-</body>
-</html>
+@extends('layouts.app')
+@section('content')
+
+	@foreach($clothes as $clothing )
+		<ul>
+			<li>{{ $clothing->type }}</li>
+			<li>{{ $clothing->brand }}</li>
+			<li>{{ $clothing->size }}</li>
+		</ul>
+	@endforeach
+
+@endsection

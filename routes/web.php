@@ -12,13 +12,14 @@
 */
 
 Route::get('/', function () {
-	$name = "Gretar";
-    return view("welcome", compact("name"));
+	$clothes = DB::table("clothes")->get();
+
+    return view("welcome", compact("clothes"));
 });
 
-Route::get("/about", function() {
-	return view("about");
+Route::get("/hoodies", function() {
+	$hoodies = DB::table("clothes")->where("type", "peysa")->get();
+
+	return view("about", compact("hoodies"));
 });
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
